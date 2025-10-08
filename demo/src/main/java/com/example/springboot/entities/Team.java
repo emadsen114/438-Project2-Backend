@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Team {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private Integer id;
+  private long id;
 
   private String name;
 
@@ -17,7 +17,7 @@ public class Team {
 
   private String logo;
 
-  public Integer getId() {
+  public long getId() {
     return id;
   }
 
