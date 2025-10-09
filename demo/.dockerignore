@@ -1,0 +1,6 @@
+.git
+.gradle
+*.log
+*.iml
+node_modules
+# don't ignore build/ for this simple copy-based image
