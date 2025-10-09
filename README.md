@@ -25,4 +25,18 @@ Docker Notes (Alberto Rodriguez):
 
 
 
+    more notes: Now rebuild from the demo/ folder:
+cd /Users/alberto/438-Project2-Backend/demo
+./gradlew clean bootJar
+docker build --no-cache --build-arg JAR_FILE='build/libs/demo-0.0.1-SNAPSHOT.jar' -t springboot-demo:webonly .
+docker run --rm -p 8080:8080 springboot-demo:webonly
+
+
+    Test (new terminal):
+curl http://localhost:8080/
+curl http://localhost:8080/spring
+curl http://localhost:8080/greeting
+
+
+
 ->
