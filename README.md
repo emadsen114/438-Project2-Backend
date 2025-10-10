@@ -39,4 +39,30 @@ curl http://localhost:8080/greeting
 
 
 
+Heroku: 
+Set the app env var
+export APP=alberto-demo-1760040975
+heroku apps:info -a "$APP"
+2) Make sure Spring binds to Heroku’s port
+Do one of these (either is fine):
+Option A — app config (recommended)
+Create/edit demo/src/main/resources/application.properties:
+server.port=${PORT:8080}
+Option B — Docker only
+Edit demo/Dockerfile so the final line is:
+CMD ["sh","-lc","java $JAVA_OPTS -jar app.jar --server.port=$PORT"]
+(If you already added one of these earlier, you’re good.)
+3) Deploy from the demo/ folder (where your Dockerfile is)
+cd 438-Project2-Backend/demo
+
+heroku container:login
+heroku container:push web -a "$APP"
+heroku container:release web -a "$APP"
+heroku logs --tail -a "$APP"
+You’re looking for a log like:
+Tomcat started on port <some-number> (http)
+where <some-number> is not 8080 (it should be the $PORT Heroku assigned). Then:
+heroku open -a "$APP"
+
+
 ->
