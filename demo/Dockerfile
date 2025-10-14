@@ -23,3 +23,5 @@ ENV JAVA_OPTS="-XX:MaxRAMPercentage=75.0"
 
 # IMPORTANT: bind to Heroku’s $PORT
 CMD ["sh","-lc","java $JAVA_OPTS -jar app.jar --server.port=$PORT"]
+
+# To build and run:
