@@ -40,4 +40,3 @@ public class Game {
         this.date = date;
     }
 }
-

@@ -1,3 +1,5 @@
+package com.example.springboot;
+
 public class GameNotFoundException extends RuntimeException {
 
   GameNotFoundException(Long id) {

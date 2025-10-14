@@ -1,3 +1,4 @@
+
 package com.example.springboot.entities;
 
 import jakarta.persistence.Entity;
