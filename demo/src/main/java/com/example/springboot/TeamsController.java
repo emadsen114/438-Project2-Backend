@@ -12,20 +12,50 @@ public class TeamsController {
 	// If you want to check my work here is the tutorial I followed: https://spring.io/guides/gs/accessing-data-mysql
 	// I also consulted this for parts that don't match: https://github.com/dclinkenbeard/CST438_books_sample/tree/main
 
-	// Theres a good chance we may have to change things so I have commented this part out for later
-	// private final TeamsRepository repository;
-	// HelloController(TeamsRepository repository) {
-	// 	this.repository = repository;
-	// }
+	private final TeamRepository teamRepo;
 
-	@GetMapping("/teams")
-	public String index() {
-		return "team";
+	TeamsController(TeamRepository teamRepo){
+		this.teamRepo = teamRepo;
 	}
 
-	// @GetMapping("/second")
-	// public String second() {
-	// 	return "Greetings from second page!";
-	// }
+	@GetMapping("/teams")
+	List<Team> all() {
+		return repository.findAll();
+	}
+
+	@GetMapping("/teams/{id}")
+	EntityModel<Team> one(@PathVariable Long id) {
+		return repository.findById(id)
+		.orElseThrow();
+	// return EntityModel.of(team,
+    //     linkTo(methodOn(HelloController.class).one(id)).withSelfRel(),
+    //     linkTo(methodOn(HelloController.class).all()).withRel("teams"));
+	}
+
+	/*
+	
+	@PostMapping("/teams")
+	Team newTeam(@RequestBody Team newTeam) {
+		return repository.save(newTeam);
+	}
+
+  @PutMapping("/teamss/{id}")
+  Team replaceTeam(@RequestBody Team newTeam, @PathVariable Long id) {
+    return repository.findById(id).map(team -> {
+          team.setName(newTeam.getName());
+          team.setNickname(newTeam.getNickname());
+          team.setLogo(newTeam.getLogo());
+          return repository.save(team);
+        })
+        .orElseGet(() -> {
+          return repository.save(newTeam);
+        });
+  }
+
+  @DeleteMapping("/team/{id}")
+  void deleteEmployee(@PathVariable Long id) {
+    repository.deleteById(id);
+  }
+	*/
 
 }
