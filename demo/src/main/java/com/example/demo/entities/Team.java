@@ -1,5 +1,4 @@
-
-package com.example.springboot.entities;
+package com.example.demo.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,21 +7,20 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Team {
+
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
   private String name;
-
   private String nickname;
-
   private String logo;
 
   public long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {  // changed from Integer to long
     this.id = id;
   }
 

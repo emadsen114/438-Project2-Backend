@@ -2,7 +2,7 @@ package com.example.springboot;
 
 public class GameNotFoundException extends RuntimeException {
 
-  GameNotFoundException(Long id) {
+  public GameNotFoundException(Integer id) {
     super("Could not find game: " + id);
   }
 }
