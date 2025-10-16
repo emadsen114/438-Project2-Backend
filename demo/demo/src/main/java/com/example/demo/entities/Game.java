@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "Game")
+@Table(name = "`Game`")
 public class Game {
 
     @Id
@@ -13,7 +13,7 @@ public class Game {
 
     private int season;
 
-    private String team;  // You could also make this a foreign key to Team later
+    private String team;  
 
     private String opponent;
 
