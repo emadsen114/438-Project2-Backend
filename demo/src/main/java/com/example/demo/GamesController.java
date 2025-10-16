@@ -1,8 +1,11 @@
-package com.example.springboot;
+package com.example.demo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.springboot.entities.Game;
+
+import com.example.demo.entities.Game;
+import com.example.springboot.GameNotFoundException;
+
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -39,9 +42,9 @@ public class GamesController {
 
 	//Single item returned 
   	@GetMapping("/games/{id}")
-  	public Game one(@PathVariable Long id) {
+public Game one(@PathVariable Integer id) {
     return gameRepo.findById(id)
         .orElseThrow(() -> new GameNotFoundException(id));
-	}
+}
 
 }
