@@ -9,9 +9,15 @@ version = '0.0.1-SNAPSHOT'
 description = 'Demo project for Spring Boot'
 
 java {
+<<<<<<< HEAD
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
+=======
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(21)
+  }
+>>>>>>> 0f2fb55bb5127c8232b3cd14681dbb0ed46f657c
 }
 
 repositories {
@@ -19,12 +25,25 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'                      
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+=======
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:mysql'
+>>>>>>> 0f2fb55bb5127c8232b3cd14681dbb0ed46f657c
 }
 
 tasks.named('test') {
