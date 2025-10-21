@@ -1,12 +1,12 @@
-package com.example.springboot;
+package com.example.demo;
 
-import com.example.demo.entities.Team;
-import com.example.springboot.TeamRepository;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.example.demo.entities.Team;
 
 @RestController
 @CrossOrigin(origins = "*") // allow requests from Expo front end
@@ -14,7 +14,6 @@ public class TeamsController {
 
     private final TeamRepository teamRepository;
 
-    // Constructor injection
     public TeamsController(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
     }

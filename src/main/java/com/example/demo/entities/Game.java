@@ -6,17 +6,13 @@ import java.sql.Date;
 @Entity
 @Table(name = "Game")
 public class Game {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private int season;
-
-    private String team;  // You could also make this a foreign key to Team later
-
+    private String team;
     private String opponent;
-
     private Date date;
 
     public long getId() { return id; }
