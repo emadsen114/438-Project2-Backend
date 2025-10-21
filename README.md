@@ -1,96 +1,29 @@
 # 438-Project2-Backend
-<!-- 
-make sure your in cd demo
 
-./gradlew clean bootJar
+Spring Boot backend for the Project 2 deliverable.
 
-docker build --no-cache \
-  --build-arg JAR_FILE='build/libs/demo-0.0.1-SNAPSHOT.jar' \
-  -t springboot-demo:local .
+## Build & Run Locally
 
-docker run --rm -p 8080:8080 springboot-demo:local
+- `./gradlew clean bootJar`
+- `docker build --no-cache -t springboot-demo:local --build-arg JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT.jar .`
+- `docker run --rm -p 8080:8080 springboot-demo:local`
+- Try the endpoints: `curl http://localhost:8080/` and `curl http://localhost:8080/greeting`
 
+## Deploy to Heroku
 
-curl http://localhost:8080/
-curl http://localhost:8080/greeting
+1. Set the app name: `export APP=<your-heroku-app>`
+2. Login: `heroku login` and `heroku container:login`
+3. Build & push: `heroku container:push web -a "$APP"`
+4. Release: `heroku container:release web -a "$APP"`
+5. Tail logs: `heroku logs --tail -a "$APP"`
+6. Open the app: `heroku open -a "$APP"`
 
+`server.port=${PORT:8080}` is already configured in `src/main/resources/application.properties` so the app binds to the dynamic Heroku port.
 
+## Tips
 
-set heroku app name:
-export APP=alberto-demo-1760040975
-heroku apps:info -a "$APP"
-
-
-Make sure Spring Boot binds to Heroku’s dynamic port:
-
-demo/src/main/resources/application.properties
-server.port=${PORT:8080}
-
-deploy from demo folder:
-cd 438-Project2-Backend/demo
-
-heroku container:login
-heroku container:push web -a "$APP"
-heroku container:release web -a "$APP"
-
-heroku logs --tail -a "$APP"
-
-open live app
-
-heroku open -a "$APP"
-
-
-after rebooting:
-
-cd 438-Project2-Backend/demo
-
-restore heroku app variable:
-export project2-438-backend
-
-heroku login
-heroku container:login
-
-REDEPLOY IF CODE CHANGED:
-heroku container:push web -a "$APP"
-heroku container:release web -a "$APP"
-
-
-heroku logs --tail -a "$APP"
-heroku open -a "$APP"
-
-
-
-EXAMPLE:
-
-cd demo
-export project2-438-backend
-heroku login
-heroku container:login
-heroku container:push web -a "$APP"
-heroku container:release web -a "$APP"
-heroku open -a "$APP"
-
-
-
-
-Tips & Troubleshooting
-Run from the correct folder: All Docker/Heroku commands must run inside demo/.
-If you see H10 App crashed:
-Check logs → heroku logs --tail -a "$APP"
-Make sure your app binds to $PORT (not 8080).
-Memory issues (exit code 137):
-heroku config:set JAVA_OPTS="-XX:MaxRAMPercentage=75.0" -a "$APP"
-Empty $APP variable?
-export APP=alberto-demo-1760040975
-or just include -a alberto-demo-1760040975 in your commands.
-🧠 Helpful Commands Reference
-Task	Command
-Build locally	./gradlew clean bootJar
-Build & run Docker	docker build ... && docker run ...
-Deploy to Heroku	heroku container:push web -a "$APP"
-Release on Heroku	heroku container:release web -a "$APP"
-View logs	heroku logs --tail -a "$APP"
-Open app	heroku open -a "$APP"
-
-->
+- Run commands from the repository root (no more nested `demo/` directory).
+- If the container exits with code 137, try `heroku config:set JAVA_OPTS="-XX:MaxRAMPercentage=75.0" -a "$APP"`.
+- Missing `APP` variable? `export APP=<your-heroku-app>` before running commands.
+- Need a quick rebuild later? Repeat steps 3–6 under Deploy to Heroku.
 
