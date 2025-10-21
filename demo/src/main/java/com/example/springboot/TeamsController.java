@@ -45,6 +45,7 @@ public class TeamsController {
           team.setName(newTeam.getName());
           team.setNickname(newTeam.getNickname());
           team.setLogo(newTeam.getLogo());
+          team.setnbaFranchise(newTeam.getnbaFranchise());
           return repository.save(team);
         })
         .orElseGet(() -> {
