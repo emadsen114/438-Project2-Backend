@@ -1,18 +1,16 @@
-
-package com.example.springboot.entities;
+package com.example.demo.entities;
 
 import jakarta.persistence.*;
 
 @Entity
 public class Team {
+
   @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
   private String name;
-
   private String nickname;
-
   private String logo;
 
   private boolean nbaFranchise;
@@ -21,7 +19,7 @@ public class Team {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(long id) {  // changed from Integer to long
     this.id = id;
   }
 
@@ -47,13 +45,5 @@ public class Team {
 
   public void setLogo(String logo) {
     this.logo = logo;
-  }
-
-  public boolean getnbaFranchise() {
-    return nbaFranchise;
-  }
-
-  public void setnbaFranchise(boolean nbaFranchise) {
-    this.nbaFranchise = nbaFranchise;
   }
 }

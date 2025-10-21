@@ -1,13 +1,23 @@
 package com.example.springboot;
 
+import com.example.demo.entities.Team;
+import com.example.springboot.TeamRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
+import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*") // allow requests from Expo front end
 public class TeamsController {
 
+    private final TeamRepository teamRepository;
+
+    // Constructor injection
+    public TeamsController(TeamRepository teamRepository) {
+        this.teamRepository = teamRepository;
+    }
 	// This should help us access the database when it exists.
 	// If you want to check my work here is the tutorial I followed: https://spring.io/guides/gs/accessing-data-mysql
 	// I also consulted this for parts that don't match: https://github.com/dclinkenbeard/CST438_books_sample/tree/main
@@ -59,4 +69,8 @@ public class TeamsController {
   }
 	*/
 
+    @GetMapping("/teams")
+    public List<Team> getAllTeams() {
+        return teamRepository.findAll();
+    }
 }
