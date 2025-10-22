@@ -13,6 +13,15 @@ public class Team {
   private String name;
   private String nickname;
   private String logo;
+  private Boolean nbaFranchise;
+
+  public Team(){}
+    public Team(String name, String nickname, String logo, Boolean nbaFranchise){
+        this.name = name;
+        this.nickname = nickname;
+        this.logo = logo;
+        this.nbaFranchise = nbaFranchise;
+    }
 
   public long getId() {
     return id;
