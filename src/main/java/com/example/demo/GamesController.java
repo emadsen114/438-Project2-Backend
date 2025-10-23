@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Game;
-import com.example.demo.GameNotFoundException;
 
 @RestController
 public class GamesController {

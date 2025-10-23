@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Team;
 
 @RestController
-@CrossOrigin(origins = "*") // allow requests from Expo front end
+@CrossOrigin(origins = "*") 
 public class TeamsController {
 
     private final TeamRepository teamRepository;
@@ -22,4 +22,5 @@ public class TeamsController {
     public List<Team> getAllTeams() {
         return teamRepository.findAll();
     }
+    
 }
