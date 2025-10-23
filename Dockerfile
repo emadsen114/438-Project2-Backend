@@ -7,6 +7,7 @@ RUN ./gradlew clean bootJar -x test --no-daemon
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-COPY --from=build /home/gradle/project/**/build/libs/*.jar /app/app.jar
+COPY --from=build /home/gradle/project/build/libs/*.jar /app/app.jar
 
+EXPOSE 8080
 CMD ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
