@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Game;
-import com.example.demo.GameNotFoundException;
 
 @RestController
 public class GamesController {
@@ -22,10 +21,9 @@ public class GamesController {
 	public List<Game> all() {
 		return gameRepository.findAll();
 	}
-
-	@GetMapping("/games/{id}")
-	public Game one(@PathVariable Long id) {
-		return gameRepository.findById(id)
-			.orElseThrow(() -> new GameNotFoundException(id));
-	}
+	@GetMapping("/games/id/{id:\\d+}")
+   public Game one(@PathVariable Long id) {             
+   return gameRepository.findById(id)
+           .orElseThrow(() -> new GameNotFoundException(id));
+   }
 }

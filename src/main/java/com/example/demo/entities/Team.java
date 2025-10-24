@@ -27,7 +27,7 @@ public class Team {
     return id;
   }
 
-  public void setId(long id) {  // changed from Integer to long
+  public void setId(long id) { 
     this.id = id;
   }
 
