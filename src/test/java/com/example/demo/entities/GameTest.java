@@ -61,7 +61,7 @@ class GameTest {
 
         assertEquals(1L, game.getId());
         assertEquals(9999, game.getSeason());
-        assertEquals("Someone", game.getSomeone());
+        assertEquals("Someone", game.getTeam());
         assertEquals("Somone else", game.getOpponent());
         assertEquals(new Date(0), game.getDate());
     }
