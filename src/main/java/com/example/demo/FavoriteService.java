@@ -8,6 +8,7 @@ import java.util.List;
 
 @Service
 public class FavoriteService {
+
     private final FavoriteRepository repo;
 
     public FavoriteService(FavoriteRepository repo) {
@@ -23,9 +24,7 @@ public class FavoriteService {
     }
 
     public Favorite add(Favorite fav) {
-        // prevent duplicates (optional)
-        return repo.findByUserIdAndTeamId(fav.getUserId(), fav.getTeamId())
-                .orElseGet(() -> repo.save(fav));
+       return repo.save(fav);
     }
 
     public Favorite getById(Long id) {
@@ -46,4 +45,10 @@ public class FavoriteService {
     public void removeByUserAndTeam(Long userId, Long teamId) {
         repo.deleteByUserIdAndTeamId(userId, teamId);
     }
+
+    public Favorite getByUserAndTeam(Long userId, Long teamId) {
+    return repo.findByUserIdAndTeamId(userId, teamId)
+        .orElseThrow(() -> new IllegalArgumentException(
+            "Favorite not found for user " + userId + " and team " + teamId));
+}
 }
