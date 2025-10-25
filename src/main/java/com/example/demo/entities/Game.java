@@ -15,6 +15,14 @@ public class Game {
     private String opponent;
     private Date date;
 
+    public Game(){}
+    public Game(int season, String team, String opponent, Date date){
+        this.season = season;
+        this.team = team;
+        this.opponent = opponent;
+        this.date = date;
+    }
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
 
