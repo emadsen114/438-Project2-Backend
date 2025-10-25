@@ -2,7 +2,6 @@ package com.example.demo.entities;
 
 import com.example.demo.entities.Game;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import java.sql.Date;
 
@@ -10,17 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Game Entity Tests")
 class GameTest {
-
-    private Game game1;
-    private Game game2;
-    private Game game3;
-
-    @BeforeEach
-    void setUp() {
-        game1 = new Game(2024, "Dallas Mavericks", "Los Angeles Clippers", new Date(1729641600));
-        game2 = new Game(2024, "Chicago Bulls", "New Orleans Pelicans", new Date(1750896000));
-        game3 = new Game(2021, "Milwaukee Bucks", "Brooklyn Nets", new Date(1644105600));
-    }
 
     @Test
     @DisplayName("Default constructor test")

@@ -54,4 +54,12 @@ public class Team {
   public void setLogo(String logo) {
     this.logo = logo;
   }
+
+  public Boolean getNbaFranchise() {
+    return nbaFranchise;
+  }
+
+  public void setNbaFranchise(Boolean nbaFranchise) {
+    this.nbaFranchise = nbaFranchise;
+  }
 }
