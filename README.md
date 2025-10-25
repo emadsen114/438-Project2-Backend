@@ -26,4 +26,3 @@ Spring Boot backend for the Project 2 deliverable.
 - If the container exits with code 137, try `heroku config:set JAVA_OPTS="-XX:MaxRAMPercentage=75.0" -a "$APP"`.
 - Missing `APP` variable? `export APP=<your-heroku-app>` before running commands.
 - Need a quick rebuild later? Repeat steps 3–6 under Deploy to Heroku.
-
