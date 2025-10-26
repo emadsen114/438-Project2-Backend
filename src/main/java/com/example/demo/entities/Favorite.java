@@ -20,6 +20,13 @@ public class Favorite {
     @Column(name = "game_id", nullable = false)
     private Long gameId;
 
+    public Favorite(){}
+    public Favorite(Long userId, Long teamId, Long gameId){
+        this.userId = userId;
+        this.teamId = teamId;
+        this.gameId = gameId;
+    }
+
     public Long getFavoriteId() { return favoriteId; }
     public void setFavoriteId(Long favoriteId) { this.favoriteId = favoriteId; }
 
