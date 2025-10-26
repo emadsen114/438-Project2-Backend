@@ -27,7 +27,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
-    // for local dev + tests
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -35,7 +34,6 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-    // so tests use the H2 profile file below
     systemProperty "spring.profiles.active", "test"
 }
 
