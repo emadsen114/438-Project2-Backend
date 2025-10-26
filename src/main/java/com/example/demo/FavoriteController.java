@@ -18,23 +18,16 @@ public class FavoriteController {
         this.service = service;
     }
 
-    //gets 
-
-    //working 
     @GetMapping
     public List<Favorite> all() {
         return service.listAll();
     }
-    //working!
+    
     @GetMapping("/user/{userId:\\d+}")
     public List<Favorite> byUser(@PathVariable Long userId) {
         return service.listByUser(userId);
     }
 
-    // posts 
-
-    //WORKINGGGGG 
-    // POST /favorites
     @PostMapping
     public Favorite add(@RequestBody Favorite fav) {
         return service.add(fav);
@@ -47,11 +40,6 @@ public class FavoriteController {
     }
 
 
-    //puts
-
-
-    // PUT /favorites/{id}
-    // sets a favorite based on the user Id :)
     @PutMapping("/{id:\\d+}")
     public ResponseEntity<Favorite> updateFavorite(
             @PathVariable Long id,
@@ -63,8 +51,6 @@ public class FavoriteController {
         return ResponseEntity.ok(service.save(existing));
     }
 
-    // PUT /favorites/user/{userId}/team/{teamId}
-    // updates the users favorites record 
     @PutMapping("/user/{userId:\\d+}/team/{teamId:\\d+}")
     public ResponseEntity<Favorite> updateByUserAndTeam(
             @PathVariable Long userId,
@@ -77,15 +63,11 @@ public class FavoriteController {
     }
 
 
-    //deletes
-
-    //working! 
-    // DELETE /favorites/{id}
     @DeleteMapping("/{id:\\d+}")
     public void deleteById(@PathVariable Long id) {
         service.removeById(id);
     }
-    //working 
+    
     @DeleteMapping("/user/{userId:\\d+}/team/{teamId:\\d+}")
     public void deleteByUserAndTeam(@PathVariable Long userId, @PathVariable Long teamId) {
         service.removeByUserAndTeam(userId, teamId);
