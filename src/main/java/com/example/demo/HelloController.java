@@ -32,7 +32,7 @@ public class HelloController {
         resp.put("name", user.getFullName());
         resp.put("email", user.getEmail());
         resp.put("subject", user.getSubject());
-        resp.put("claims", user.getClaims()); // full set if you need it
+        resp.put("claims", user.getClaims());
         return resp;
     }
 }

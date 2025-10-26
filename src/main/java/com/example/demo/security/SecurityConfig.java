@@ -14,19 +14,19 @@ public class SecurityConfig {
     http
       .authorizeHttpRequests(auth -> auth
         .requestMatchers(
-          "/", "/login",               // keep home public; allow your /login -> Google redirect
-          "/spring", "/greeting", "/Greeting",
+          "/", "/login",
+          "/spring", "/greeting", "/Greeting", 
           "/error", "/actuator/**",
           "/css/**", "/js/**", "/images/**"
         ).permitAll()
+        .requestMatchers("/teams", "/games", "/favorites/**").authenticated()
         .anyRequest().authenticated()
       )
-      // default Google entry: /oauth2/authorization/google
       .oauth2Login(o -> o
-        .defaultSuccessUrl("/me", true) // always land on /me after login
+        .defaultSuccessUrl("/me", true)
       )
       .logout(logout -> logout
-        .logoutSuccessUrl("/")          // after logout, return home
+        .logoutSuccessUrl("/")
         .permitAll()
       );
 
