@@ -14,3 +14,6 @@ spring:
         provider:
           google:
             issuer-uri: https://accounts.google.com
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
