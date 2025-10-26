@@ -1,0 +1,5 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update    # or validate, depending on your setup
+    show-sql: false
